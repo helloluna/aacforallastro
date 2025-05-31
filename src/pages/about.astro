@@ -1,23 +1,11 @@
 ---
-/*
-  这个文件是 src/pages/about.astro，
-  用来映射浏览器访问 https://<你的网站域名>/about。
-  
-  我们 import 了下面两个东西：
-  1. “Layout.astro” —— 承担整体的 <html>、<head>、<body> 结构、SEO meta 等。
-  2. “About.astro” —— 你之前写好的 “关于我们” 那个组件。
-  
-  这样就能保证：
-    - 访问 /about 时，先走 Layout 的 <head> 
-    - 然后在 <main> 里渲染 About 组件里定义的内容。
-*/
 import Layout from "../layouts/Layout.astro";
 import AboutComponent from "../components/About.astro";
 ---
 
 <Layout title="About – AAC For All">
   <main class="max-w-screen-md mx-auto px-4 py-12">
-    <!-- 这里显示你写在 src/components/About.astro 里的“关于”信息 -->
-    <About />
+    <!-- 渲染你在 src/components/About.astro 中写好的 "关于" 内容 -->
+    <AboutComponent />
   </main>
 </Layout>
