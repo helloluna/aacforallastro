@@ -8,9 +8,6 @@ const files = [
   },
   {
     name: "JABtalk 5.3.2",
-    // NOTE: If your filename contains spaces, make sure the actual file on disk is URL-safe
-    // (e.g. “JABtalk_5.3.2.apk” rather than “JABtalk 5.3.2.apk”), or URL-encode the spaces here:
-    // path: "/apk/JABtalk%205.3.2.apk"
     path: "/apk/JABtalk_5.3.2.apk",
   },
   {
@@ -25,47 +22,109 @@ const files = [
 ---
 
 <Layout title="Download Free AAC Apps – AAC For All">
-  <main class="max-w-screen-md mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold mb-6 text-center">
-      🎁 Download Free AAC Apps (APK)
-    </h1>
-    <p class="text-center text-gray-600 mb-8">
-      Here are our curated open-source AAC apps. No Google Play needed—just click to download the APK for your Android tablet:
-    </p>
+  <main class="bg-gray-100 min-h-screen pb-16">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-indigo-600 py-20">
+      <div class="max-w-3xl mx-auto text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+          🎁 Download Free AAC Apps (APK)
+        </h1>
+        <p class="text-lg md:text-xl text-blue-100">
+          Curated, open-source AAC applications for Android tablets. No Google Play needed—just click to download the APK.
+        </p>
+      </div>
+    </section>
 
-    <ul class="space-y-4 list-disc list-inside text-lg">
-      {files.map((f) => (
-        <li>
-          <a
-            class="text-blue-600 hover:underline"
-            href={f.path}
-            download
+    <!-- APK List Section -->
+    <section class="max-w-3xl mx-auto mt-[-4rem] px-4">
+      <!-- 白色卡片背景 -->
+      <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+        <ul class="divide-y divide-gray-200">
+          {files.map((f) => (
+            <li class="flex flex-col md:flex-row items-center justify-between p-6 hover:bg-gray-50 transition-colors">
+              <div class="flex items-center space-x-4 w-full md:w-3/4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-500 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 4v16m8-8H4"
+                  />
+                </svg>
+                <span class="text-lg font-medium text-gray-800">
+                  {f.name}
+                </span>
+              </div>
+              <div class="mt-4 md:mt-0">
+                <a
+                  href={f.path}
+                  download
+                  class="inline-block px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition-colors"
+                >
+                  Download APK
+                </a>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- PDF Guides Section -->
+    <section class="max-w-3xl mx-auto mt-12 px-4">
+      <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+        <a
+          href="/assets/AAC_App_Installation_Guide.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center space-x-2 px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow hover:bg-indigo-700 transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
           >
-            {f.name}
-          </a>
-          <span class="text-gray-500"> &mdash; Click to download APK</span>
-        </li>
-      ))}
-    </ul>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 4v16m8-8H4"
+            />
+          </svg>
+          <span>AAC App Installation Guide (PDF)</span>
+        </a>
 
-    <div class="mt-10 text-center">
-      <a
-        class="inline-block px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition-colors"
-        href="/assets/AAC_App_Installation_Guide.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        📖 AAC App Installation Guide (PDF)
-      </a>
-      <span class="mx-4 text-gray-400">|</span>
-      <a
-        class="inline-block px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition-colors"
-        href="/assets/How_to_Pin_App_Samsung_Tab_Active3.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        🔒 How to Pin an App (PDF)
-      </a>
-    </div>
+        <a
+          href="/assets/How_to_Pin_App_Samsung_Tab_Active3.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center space-x-2 px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow hover:bg-indigo-700 transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 4v16m8-8H4"
+            />
+          </svg>
+          <span>How to Pin an App (PDF)</span>
+        </a>
+      </div>
+    </section>
   </main>
 </Layout>
