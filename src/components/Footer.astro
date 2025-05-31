@@ -1,4 +1,10 @@
 ---
+/*
+  src/components/Footer.astro
+  在这里，我们用前置脚本区把当前年份算出来，然后在模板里插入 {currentYear}。
+*/
+const currentYear = new Date().getFullYear();
+---
 
 <footer
   class="w-full max-w-screen-2xl bg-foreground px-4 pt-20 flex flex-col gap-8 justify-between items-center"
@@ -18,13 +24,13 @@
       📧 Contact: helloluna520@gmail.com
     </a>
     <a
-      href="/apk"
+      href="/downloads"
       class="flex items-center gap-2 text-muted-foreground text-sm font-medium leading-none hover:text-white transition-all duration-300 ease-in-out"
     >
       📥 Free AAC Apps
     </a>
     <a
-      href="/assets/AAC_App_Installation_Guide.pdf"
+      href="/guides/AAC_App_Installation_Guide.pdf"
       target="_blank"
       class="flex items-center gap-2 text-muted-foreground text-sm font-medium leading-none hover:text-white transition-all duration-300 ease-in-out"
     >
@@ -39,7 +45,7 @@
   </div>
   <div class="w-full text-center py-4">
     <span class="text-muted-foreground text-xs">
-      &copy; {new Date().getFullYear()} AAC For All · Website maintained by a parent for the community.
+      &copy; {currentYear} AAC For All · Website maintained by a parent for the community.
     </span>
   </div>
 </footer>
