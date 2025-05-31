@@ -1,6 +1,6 @@
-
-/* 
-    Free AAC app logos（如后续有 SVG，可放 public/logos/ 下，这里演示用 jpg/png 路径）。
+---
+/*
+  Free AAC app logos（如后续有 SVG，可放 public/logos/ 下，这里演示用 jpg/png 路径）。
 */
 const logos = [
   { src: "/assets/aac-1.jpg", alt: "Tablet and case" },
@@ -32,11 +32,11 @@ const logos = [
       {
         logos.concat(logos).map((logo) => (
           <div class="aspect-square flex items-center justify-center size-20">
-            <Image
+            <img
               src={logo.src}
               alt={logo.alt}
-              width={80}
-              height={80}
+              width="80"
+              height="80"
               loading="eager"
               class="object-contain rounded-lg shadow"
             />
