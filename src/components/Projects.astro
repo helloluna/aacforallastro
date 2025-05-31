@@ -1,5 +1,6 @@
 ---
-
+// src/components/Projects.astro
+// “Projects” section, rewritten so that all images live in a fixed 16:9 box
 ---
 
 <section
@@ -15,11 +16,13 @@
   >
     No sales pressure. No markup. Just support, honesty and real choice.
   </p>
-  <div class="z-10 w-full grid grid-cols-1 md:grid-cols-5 grid-rows-6 gap-2">
 
-    <!-- 主设备和配件展示 -->
+  <div class="z-10 w-full grid grid-cols-1 md:grid-cols-5 grid-rows-6 gap-4">
+    <!-- ============================
+         1) 主设备和配件展示 (占 3 列 × 2 行)
+         ============================ -->
     <article
-      class="overflow-hidden relative bg-dark-card col-span-1 md:col-span-3 md:row-span-2 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3"
+      class="overflow-hidden relative bg-dark-card col-span-1 md:col-span-3 md:row-span-2 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-4"
     >
       <div class="flex flex-col gap-2 w-full items-start p-4 text-left">
         <h3
@@ -30,78 +33,96 @@
         <p
           class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance"
         >
-          Rugged Samsung Galaxy Tab Active 3 tablet, new shockproof case (with hand/shoulder straps), and pre-installed screen protector.  
-          <br/><br/>
-          Suited for non-speaking or autistic children — durable, portable, ready for real-life use at home, school, or in the community.
+          Rugged Samsung Galaxy Tab Active 3 tablet, new shockproof case (with
+          hand/shoulder straps), and pre-installed screen protector.  
+          <br /><br />
+          Suited for non-speaking or autistic children — durable, portable,
+          ready for real-life use at home, school, or in the community.
         </p>
       </div>
-      <div class="aspect-video">
+
+      <!-- 16:9 固定比例容器 -->
+      <div class="aspect-video flex-shrink-0 w-full lg:w-1/2">
         <img
           src="/assets/aac-1.jpg"
           alt="Tablet and case"
           loading="lazy"
-          width="1920"
-          height="1080"
-          class="object-contain w-full h-full rounded-md"
+          class="object-cover w-full h-full rounded-md"
         />
       </div>
     </article>
 
-    <!-- 真实应用与App截图 -->
+    <!-- ============================
+         2) 真实应用与 App 截图 (占 2 列 × 2 行)
+         ============================ -->
     <article
-      class="overflow-hidden group bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 h-[300px] border border-dark-border rounded-[1rem] p-4 flex flex-col flex-1 gap-2 justify-center items-center"
+      class="overflow-hidden group bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 h-[300px] border border-dark-border rounded-[1rem] p-4 flex flex-col justify-center items-center gap-2"
     >
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out">
+      <div
+        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out"
+      >
         <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
           Free open-source AAC apps
         </span>
       </div>
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out">
+      <div
+        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out"
+      >
         <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
           No Google account required
         </span>
       </div>
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border">
+      <div
+        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border"
+      >
         <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
           Instant trial, full refund
         </span>
       </div>
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border rotate-12 group-hover:rotate-0 transition-all duration-300 ease-in-out">
+      <div
+        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border rotate-12 group-hover:rotate-0 transition-all duration-300 ease-in-out"
+      >
         <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
           Companion Card supported
         </span>
       </div>
     </article>
 
-    <!-- App实际截图 -->
+    <!-- ============================
+         3) App 实际截图 (占 2 列 × 2 行)
+         这里将两张图各放入 16:9 容器，垂直堆叠
+         ============================ -->
     <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] px-4 group"
+      class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:row-start-3 border h-auto border-dark-border rounded-[1rem] p-4"
     >
-      <div class="w-full h-fit max-h-[500px] flex flex-col justify-center select-none overflow-hidden">
-        <div class="w-full h-max flex flex-col justify-center items-center gap-[2rem]">
+      <!-- 这里我们改为一个竖直排列的 Grid，每个子项都是 16:9 -->
+      <div class="grid grid-rows-2 gap-4 h-full">
+        <!-- 第一张截图 -->
+        <div class="aspect-video w-full">
           <img
             src="/assets/aac-2.jpg"
             alt="AAC app running"
             loading="lazy"
-            width="800"
-            height="600"
-            class="object-contain w-full h-full rounded-md"
+            class="object-cover w-full h-full rounded-md"
           />
+        </div>
+        <!-- 第二张截图 -->
+        <div class="aspect-video w-full">
           <img
             src="/assets/aac-3.png"
             alt="Tablet with accessories"
             loading="lazy"
-            width="800"
-            height="600"
-            class="object-contain w-full h-full rounded-md"
+            class="object-cover w-full h-full rounded-md"
           />
         </div>
       </div>
     </article>
 
-    <!-- 价格/试用政策/家长承诺 -->
+    <!-- ============================
+         4) 价格/试用政策/家长承诺 (占 3 列 × 2 行)
+         ============================ -->
     <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-3 md:row-span-2 md:col-start-3 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3"
+      class="overflow-hidden bg-dark-card col-span-1 md:col-span-3 md:row-span-2 md:col-start-3 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-4"
     >
       <div class="flex flex-col gap-2 w-full items-start p-4 text-left">
         <h3
@@ -113,25 +134,29 @@
           class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance"
         >
           Each set is offered at cost: $110 (with valid Companion Card).
-          <br/><br/>
-          <b>Try for 2 weeks — if it's not the right fit, just return for a full refund. No questions asked.</b>
-          <br/>
+          <br /><br />
+          <b
+            >Try for 2 weeks — if it's not the right fit, just return for a full
+            refund. No questions asked.</b
+          >
+          <br />
           This is about support, not sales.
         </p>
       </div>
-      <div class="aspect-video">
+
+      <div class="aspect-video flex-shrink-0 w-full lg:w-1/2">
         <img
           src="/assets/aac-4.jpg"
           alt="Protective case set"
           loading="lazy"
-          width="1920"
-          height="1080"
-          class="object-contain w-full h-full rounded-md"
+          class="object-cover w-full h-full rounded-md"
         />
       </div>
     </article>
 
-    <!-- 联系方式和真实承诺 -->
+    <!-- ============================
+         5) 联系方式和真实承诺 (占 2 列 × 2 行)
+         ============================ -->
     <article
       class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 md:row-start-5 border h-[300px] border-dark-border rounded-[1rem]"
     >
@@ -150,14 +175,13 @@
       </div>
     </article>
   </div>
+
+  <!-- 背景虚化圆形 -->
   <div
-    class="bg-white opacity-10 absolute size-80 top-[-160px] border blur-[150px] rounded-full"
-  >
-  </div>
+    class="bg-white opacity-10 absolute w-80 h-80 top-[-160px] border blur-[150px] rounded-full"
+  ></div>
 </section>
 
 <style>
-  .group:hover .animate-vertical-slide {
-    animation-play-state: paused;
-  }
+  /* 如果以后用到“垂直滚动文字”之类的动画，可放这里 */
 </style>
