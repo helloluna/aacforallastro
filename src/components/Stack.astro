@@ -1,20 +1,13 @@
----
 import Image from "astro/components/Image.astro";
 
 /* 
-    Logos were provided by "svgl" free and open source icons library.
-    Link: https://svgl.app/
+    Free AAC app logos（如后续有 SVG，可放 public/logos/ 下，这里演示用 jpg/png 路径）。
 */
 const logos = [
-  { src: "/logos/astro.svg", alt: "AstroJS Logo" },
-  { src: "/logos/react.svg", alt: "ReactJS Logo" },
-  { src: "/logos/next.svg", alt: "NextJS" },
-  { src: "/logos/vercel.svg", alt: "Vercel Logo" },
-  { src: "/logos/tailwindcss.svg", alt: "TailwindCSS Logo" },
-  { src: "/logos/typescript.svg", alt: "TypeScript Logo" },
-  { src: "/logos/aws.svg", alt: "AWS Logo" },
-  { src: "/logos/supabase.svg", alt: "Supabase Logo" },
-  { src: "/logos/openai_dark.svg", alt: "OpenAI Logo" },
+  { src: "/aac-1.jpg", alt: "Tablet and case" },
+  { src: "/aac-2.jpg", alt: "AAC app running" },
+  { src: "/aac-3.png", alt: "Tablet with accessories" },
+  { src: "/aac-4.jpg", alt: "Protective case set" }
 ];
 ---
 
@@ -24,12 +17,14 @@ const logos = [
   <h2
     class="w-full max-w-xl sm:text-center text-lg sm:text-2xl md:text-4xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-primary via-foreground to-foreground"
   >
-    Top Technologies I Use Everyday
+    Free AAC Apps — Ready to Download
   </h2>
   <p
     class="w-full max-w-xl text-muted-foreground sm:text-center text-normal sm:text-lg md:text-xl font-light tracking-tighter text-balance"
   >
-    Best tools to deliver the best results.
+    No Google Play required.  
+    <br />
+    Direct APK downloads for modern Android tablets.
   </p>
   <div
     class="w-full h-fit max-w-xl flex flex-col justify-center select-none overflow-hidden gradient"
@@ -41,15 +36,48 @@ const logos = [
             <Image
               src={logo.src}
               alt={logo.alt}
-              width={32}
-              height={32}
+              width={80}
+              height={80}
               loading="eager"
-              class="object-contain"
+              class="object-contain rounded-lg shadow"
             />
           </div>
         ))
       }
     </div>
+  </div>
+  <div class="w-full max-w-xl text-center mt-8">
+    <ul class="list-disc list-inside text-muted-foreground text-lg">
+      <li>
+        <b>
+          <a href="/apk/Cboard_AAC_1.33.0.apk" style="color:#1d80c3;">Cboard AAC</a>
+        </b> — Symbol/phrase board, multi-language.
+      </li>
+      <li>
+        <b>
+          <a href="/apk/JABtalk 5.3.2.apk" style="color:#1d80c3;">JABtalk</a>
+        </b> — Simple voice output, custom boards.
+      </li>
+      <li>
+        <b>
+          <a href="/apk/Jellow Basic AAC Communicator_4.1.2.apk" style="color:#1d80c3;">Jellow AAC</a>
+        </b> — Child-friendly, symbol communicator.
+      </li>
+      <li>
+        <b>
+          <a href="/apk/LetMeTalk 1.4.29.apk" style="color:#1d80c3;">LetMeTalk</a>
+        </b> — Large vocabulary, easy to use.
+      </li>
+    </ul>
+    <p class="mt-6 text-base text-muted-foreground">
+      <a href="/guides/AAC_App_Installation_Guide.pdf" target="_blank" style="color:#1d80c3;">
+        📖 AAC App Installation Guide
+      </a>
+      &nbsp;|&nbsp;
+      <a href="/guides/How_to_Pin_App_Samsung_Tab_Active3.pdf" target="_blank" style="color:#1d80c3;">
+        🔒 How to Pin an App (App Lock Guide)
+      </a>
+    </p>
   </div>
 </section>
 
@@ -62,12 +90,12 @@ const logos = [
       black 80%,
       transparent
     );
-    webkitmask: linear-gradient(
+    -webkit-mask: linear-gradient(
       90deg,
       transparent,
       black 20%,
       black 80%,
-      black transparent
+      transparent
     );
   }
 </style>
