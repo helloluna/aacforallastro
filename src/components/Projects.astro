@@ -1,159 +1,154 @@
 ---
 /*
   src/components/Projects.astro
-  优化图片尺寸和容器比例统一，视觉更整齐。
+
+  每个区块使用 flex 布局，图片全部用相同的纵横比容器 (aspect-video + object-cover)，
+  保证视觉效果整齐有序。
 */
 ---
 
 <section
-  class="relative overflow-hidden bg-foreground w-full max-w-screen-2xl text-center flex flex-col justify-center items-center gap-10 px-4 py-24 sm:py-24 select-none"
+  class="relative w-full max-w-screen-2xl mx-auto flex flex-col items-center gap-12 px-4 py-24 select-none"
 >
-  <h2
-    class="z-10 w-full max-w-xl sm:text-center text-lg sm:text-2xl md:text-4xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground"
-  >
-    Every family deserves a real, accessible AAC solution.
-  </h2>
-  <p
-    class="w-full max-w-xl bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground sm:text-center text-normal sm:text-lg md:text-xl font-light tracking-tighter text-balance"
-  >
-    No sales pressure. No markup. Just support, honesty and real choice.
-  </p>
-  <div class="z-10 w-full grid grid-cols-1 md:grid-cols-5 grid-rows-6 gap-2">
-
-    <!-- 主设备和配件展示 -->
-    <article
-      class="overflow-hidden relative bg-dark-card col-span-1 md:col-span-3 md:row-span-2 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3"
+  <!-- 大标题 + 副标题 -->
+  <div class="w-full max-w-3xl text-center">
+    <h2
+      class="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-pretty bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground mb-4"
     >
-      <div class="flex flex-col gap-2 w-full items-start p-4 text-left">
-        <h3
-          class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          The AAC For All Device Kit
-        </h3>
-        <p
-          class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance"
-        >
-          Rugged Samsung Galaxy Tab Active 3 tablet, new shockproof case (with hand/shoulder straps), and pre-installed screen protector.  
-          <br/><br/>
-          Suited for non-speaking or autistic children — durable, portable, ready for real-life use at home, school, or in the community.
-        </p>
-      </div>
-      <div class="aspect-video w-full max-w-xs lg:max-w-sm overflow-hidden rounded-md bg-black flex-shrink-0 mx-auto my-auto">
-        <img
-          src="/assets/aac-1.jpg"
-          alt="Tablet and case"
-          loading="lazy"
-          class="w-full h-full object-cover object-center rounded-md"
-        />
-      </div>
-    </article>
-
-    <!-- 真实应用与App截图说明 -->
-    <article
-      class="overflow-hidden group bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 h-[300px] border border-dark-border rounded-[1rem] p-4 flex flex-col flex-1 gap-2 justify-center items-center"
-    >
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out">
-        <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
-          Free open-source AAC apps
-        </span>
-      </div>
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out">
-        <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
-          No Google account required
-        </span>
-      </div>
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border">
-        <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
-          Instant trial, full refund
-        </span>
-      </div>
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border rotate-12 group-hover:rotate-0 transition-all duration-300 ease-in-out">
-        <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
-          Companion Card supported
-        </span>
-      </div>
-    </article>
-
-    <!-- App实际截图 -->
-    <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] px-4 group"
-    >
-      <div class="w-full h-full flex flex-col justify-center items-center gap-6">
-        <div class="aspect-video w-full max-w-xs overflow-hidden rounded-md bg-black">
-          <img
-            src="/assets/aac-2.jpg"
-            alt="AAC app running"
-            loading="lazy"
-            class="w-full h-full object-cover object-center rounded-md"
-          />
-        </div>
-       
-      </div>
-    </article>
-
-    <!-- 价格/试用政策/家长承诺 -->
-    <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-3 md:row-span-2 md:col-start-3 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3"
-    >
-      <div class="flex flex-col gap-2 w-full items-start p-4 text-left">
-        <h3
-          class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          Fair, transparent, parent-driven
-        </h3>
-        <p
-          class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance"
-        >
-          Each set is offered at cost: $110 (with valid Companion Card).
-          <br/><br/>
-          <b>Try for 2 weeks — if it's not the right fit, just return for a full refund. No questions asked.</b>
-          <br/>
-          This is about support, not sales.
-        </p>
-      </div>
-      <div class="aspect-video w-full max-w-xs lg:max-w-sm overflow-hidden rounded-md bg-black flex-shrink-0 mx-auto my-auto">
-        <img
-          src="/assets/aac-4.jpg"
-          alt="Protective case set"
-          loading="lazy"
-          class="w-full h-full object-cover object-center rounded-md"
-        />
-      </div>
-    </article>
-
-    <!-- 联系方式和真实承诺 -->
-    <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 md:row-start-5 border h-[300px] border-dark-border rounded-[1rem]"
-    >
-      <div class="w-full h-full flex flex-col gap-5 justify-center items-center">
-        <h1
-          class="sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          Questions? Contact me
-        </h1>
-        <a
-          href="mailto:helloluna520@gmail.com"
-          class="w-fit flex gap-2 justify-center items-center px-4 py-2 sm:text-lg font-medium text-background bg-primary rounded-full"
-        >
-          Email for support
-        </a>
-      </div>
-    </article>
+      Every family deserves a real, accessible AAC solution.
+    </h2>
+    <p class="text-base sm:text-lg md:text-xl text-muted-foreground font-light">
+      No sales pressure. No markup. Just support, honesty and real choice.
+    </p>
   </div>
+
+  <!-- 1. 设备套餐展示 -->
   <div
-    class="bg-white opacity-10 absolute size-80 top-[-160px] border blur-[150px] rounded-full"
+    class="w-full bg-dark-card rounded-2xl border border-dark-border overflow-hidden shadow-lg flex flex-col lg:flex-row gap-6 p-6"
   >
+    <!-- 左侧文字 -->
+    <div class="flex-1 flex flex-col justify-center text-left">
+      <h3
+        class="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary mb-3"
+      >
+        The AAC For All Device Kit
+      </h3>
+      <p class="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
+        Rugged Samsung Galaxy Tab Active 3 tablet, new shockproof case (with hand/shoulder straps), and pre-installed screen protector.
+        <br /><br />
+        Suited for non-speaking or autistic children — durable, portable, ready for real-life use at home, school, or in the community.
+      </p>
+    </div>
+    <!-- 右侧图片 -->
+    <div class="flex-1 aspect-video min-w-[200px] max-w-sm overflow-hidden rounded-lg bg-black">
+      <img
+        src="/assets/aac-1.jpg"
+        alt="Tablet and case"
+        loading="lazy"
+        class="w-full h-full object-cover object-center"
+      />
+    </div>
+  </div>
+
+  <!-- 2. 特色标签区 -->
+  <div
+    class="w-full bg-dark-card rounded-2xl border border-dark-border overflow-hidden shadow-lg flex flex-wrap justify-center gap-4 px-6 py-8"
+  >
+    <span
+      class="px-4 py-2 bg-background text-sm sm:text-base font-medium rounded-full shadow-sm"
+    >
+      Free open-source AAC apps
+    </span>
+    <span
+      class="px-4 py-2 bg-background text-sm sm:text-base font-medium rounded-full shadow-sm"
+    >
+      No Google account required
+    </span>
+    <span
+      class="px-4 py-2 bg-background text-sm sm:text-base font-medium rounded-full shadow-sm"
+    >
+      Instant trial, full refund
+    </span>
+    <span
+      class="px-4 py-2 bg-background text-sm sm:text-base font-medium rounded-full shadow-sm"
+    >
+      Companion Card supported
+    </span>
+  </div>
+
+  <!-- 3. 应用截图展示 -->
+  <div
+    class="w-full bg-dark-card rounded-2xl border border-dark-border overflow-hidden shadow-lg flex flex-col lg:flex-row gap-6 p-6"
+  >
+    <div class="flex-1 aspect-video min-w-[200px] max-w-sm overflow-hidden rounded-lg bg-black">
+      <img
+        src="/assets/aac-2.jpeg"
+        alt="AAC app running"
+        loading="lazy"
+        class="w-full h-full object-cover object-center"
+      />
+    </div>
+    <div class="flex-1 aspect-video min-w-[200px] max-w-sm overflow-hidden rounded-lg bg-black">
+      <img
+        src="/assets/aac-3.png"
+        alt="Tablet with accessories"
+        loading="lazy"
+        class="w-full h-full object-cover object-center"
+      />
+    </div>
+  </div>
+
+  <!-- 4. 定价及退款政策展示 -->
+  <div
+    class="w-full bg-dark-card rounded-2xl border border-dark-border overflow-hidden shadow-lg flex flex-col lg:flex-row gap-6 p-6"
+  >
+    <!-- 左侧文字 -->
+    <div class="flex-1 flex flex-col justify-center text-left">
+      <h3
+        class="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary mb-3"
+      >
+        Fair, transparent, parent-driven
+      </h3>
+      <p class="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
+        Each set is offered at cost: <strong>$110</strong> (with valid Companion Card).
+        <br /><br />
+        <strong>Try for 2 weeks — if it's not the right fit, just return for a full refund. No questions asked.</strong>
+        <br />
+        This is about support, not sales.
+      </p>
+    </div>
+    <!-- 右侧图片 -->
+    <div class="flex-1 aspect-video min-w-[200px] max-w-sm overflow-hidden rounded-lg bg-black">
+      <img
+        src="/assets/aac-4.jpg"
+        alt="Protective case set"
+        loading="lazy"
+        class="w-full h-full object-cover object-center"
+      />
+    </div>
+  </div>
+
+  <!-- 5. 联系方式区 -->
+  <div
+    class="w-full bg-dark-card rounded-2xl border border-dark-border overflow-hidden shadow-lg flex flex-col justify-center items-center gap-4 p-8"
+  >
+    <h3
+      class="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
+    >
+      Questions? Contact me
+    </h3>
+    <a
+      href="mailto:helloluna520@gmail.com"
+      class="inline-block px-6 py-3 bg-primary text-white font-medium rounded-lg shadow hover:bg-opacity-90 transition-colors"
+    >
+      📧 Email for support
+    </a>
   </div>
 </section>
 
 <style>
-  .group:hover .animate-vertical-slide {
-    animation-play-state: paused;
-  }
+  /* 保证所有 <img> 都在 16:9 容器内裁切，保持一致 */
   .aspect-video {
     aspect-ratio: 16 / 9;
-    min-width: 180px;
-    min-height: 120px;
-    background: #000; /* 让未铺满区域也有统一背景 */
   }
 </style>
