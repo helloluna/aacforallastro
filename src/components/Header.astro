@@ -1,20 +1,140 @@
 ---
-/* Simple header for AAC For All */
+// src/components/Header.astro
+// A beautiful, responsive header for “AAC For All”
 ---
 
-<header class="bg-foreground w-full px-4 h-12 flex justify-between items-center shadow">
-  <a
-    href="/"
-    class="flex items-center gap-2 text-lg font-bold text-card hover:text-primary transition"
-    aria-label="AAC For All Home"
-  >
-    <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#7dbdea"/><path d="M7 13h10M12 7v10" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-    AAC For All
-  </a>
-  <nav class="flex gap-6 items-center">
-    <a href="/apk/" class="text-sm text-card hover:text-primary transition">Downloads</a>
-    <a href="/assets/AAC_App_Installation_Guide.pdf" target="_blank" class="text-sm text-card hover:text-primary transition">Setup Guide</a>
-    <a href="/about" class="text-sm text-card hover:text-primary transition">About</a>
-    <a href="mailto:helloluna520@gmail.com" class="text-sm text-card hover:text-primary transition">Contact</a>
-  </nav>
+<header class="bg-gray-900 text-white shadow-md">
+  <div class="max-w-screen-2xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Logo / Brand -->
+    <a
+      href="/"
+      class="flex items-center gap-2 text-xl font-extrabold hover:text-blue-400 transition-colors"
+      aria-label="AAC For All Home"
+    >
+      <!-- Example SVG “plus in circle” logo -->
+      <svg
+        class="h-8 w-8 text-blue-400 flex-shrink-0"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <circle cx="12" cy="12" r="10" class="fill-current text-blue-400" />
+        <path
+          d="M12 8v8M8 12h8"
+          class="stroke-white"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span>AAC For All</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-8">
+      <a
+        href="/"
+        class="text-sm font-medium hover:text-blue-400 transition-colors"
+      >
+        Home
+      </a>
+      <a
+        href="/apk/"
+        class="text-sm font-medium hover:text-blue-400 transition-colors"
+      >
+        Downloads
+      </a>
+      <a
+        href="/assets/AAC_App_Installation_Guide.pdf"
+        target="_blank"
+        class="text-sm font-medium hover:text-blue-400 transition-colors"
+      >
+        Setup Guide
+      </a>
+      <a
+        href="/about"
+        class="text-sm font-medium hover:text-blue-400 transition-colors"
+      >
+        About
+      </a>
+      <a
+        href="mailto:helloluna520@gmail.com"
+        class="text-sm font-medium hover:text-blue-400 transition-colors"
+      >
+        Contact
+      </a>
+    </nav>
+
+    <!-- Mobile Hamburger Menu (using <details> for accessibility) -->
+    <details class="md:hidden relative">
+      <summary
+        class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer"
+        aria-label="Open menu"
+      >
+        <!-- Hamburger icon -->
+        <svg
+          class="h-6 w-6 text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </summary>
+
+      <!-- Mobile Menu Items -->
+      <ul
+        class="absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg overflow-hidden z-10"
+      >
+        <li>
+          <a
+            href="/"
+            class="block px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 transition-colors"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            href="/apk/"
+            class="block px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 transition-colors"
+          >
+            Downloads
+          </a>
+        </li>
+        <li>
+          <a
+            href="/assets/AAC_App_Installation_Guide.pdf"
+            target="_blank"
+            class="block px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 transition-colors"
+          >
+            Setup Guide
+          </a>
+        </li>
+        <li>
+          <a
+            href="/about"
+            class="block px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 transition-colors"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:helloluna520@gmail.com"
+            class="block px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 transition-colors"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+    </details>
+  </div>
 </header>
