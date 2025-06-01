@@ -1,29 +1,47 @@
 ---
-const { title = "AAC For All" } = Astro.props;
+const {
+  title = "AAC For All",
+  description = "Low-cost Android AAC tablets and free open-source communication apps. A non-profit project supporting non-speaking and autistic kids and their families.",
+  ogImage = "/assets/hero-bg.jpg",
+  canonical = "https://aacforall.org",
+} = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Low-cost Android AAC tablets and free open-source communication apps. A non-profit project supporting non-speaking and autistic kids and their families."
-    />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta property="og:title" content="AAC For All" />
-    <meta property="og:description" content="Low-cost Android AAC tablets and free open-source communication apps. A non-profit project supporting non-speaking and autistic kids and their families." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/assets/hero-bg.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="AAC For All" />
-    <meta name="twitter:description" content="Low-cost Android AAC tablets & open-source AAC apps for families." />
-    <meta name="twitter:image" content="/assets/hero-bg.jpg" />
-    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
     <title>{title}</title>
-    <!-- 如有统计需求，可自行添加分析脚本 -->
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Search Console（可选验证） -->
+    <!-- <meta name="google-site-verification" content="google-site-verification: google2ab2eb5072e007be.html" /> -->
+
+    <!-- Generator -->
+    <meta name="generator" content={Astro.generator} />
   </head>
+
   <body
     class="relative flex flex-col w-full min-h-dvh justify-center items-center bg-background"
   >
@@ -65,6 +83,7 @@ const { title = "AAC For All" } = Astro.props;
       @apply bg-background text-foreground;
     }
   }
+
   .perfect-shadow {
     box-shadow: var(--perfect-shadow);
     --base: hsl(214 80% 27% / 4%);
