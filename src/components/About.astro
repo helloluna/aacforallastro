@@ -1,7 +1,6 @@
 ---
 // src/components/About.astro
-
-// 无需额外导入其他组件，这里只是单纯的一个展示区块
+// 这是“关于”页面组件，将左侧图片改为自适应并完整显示，右侧文字保持不变
 ---
 
 <section
@@ -10,15 +9,15 @@
   <div
     class="flex flex-col md:flex-row gap-10 w-full max-w-2xl justify-center items-center"
   >
-    <!-- 左侧：图片容器 -->
+    <!-- 左侧：图片容器（移除固定高度，改用自适应） -->
     <div
-      class="flex-shrink-0 w-full max-w-[200px] h-[300px] bg-accent rounded-lg overflow-hidden perfect-shadow"
+      class="flex-shrink-0 w-full max-w-[250px] overflow-hidden rounded-lg perfect-shadow"
     >
       <img
         src="/assets/aac-7.png"
         alt="AAC For All Illustration"
         loading="lazy"
-        class="w-full h-full object-cover object-center"
+        class="w-full h-auto object-contain"
       />
     </div>
 
@@ -32,7 +31,8 @@
       <p
         class="w-full max-w-md text-left text-sm sm:text-normal md:text-lg font-normal text-balance"
       >
-        I'm a parent of two autistic children—both non-speaking. I started this project from a simple wish: <strong>communication shouldn’t be limited by price tags or closed systems.</strong>
+        I'm a parent of two autistic children—both non-speaking. I started this project from a simple wish: 
+        <strong>communication shouldn’t be limited by price tags or closed systems.</strong>
         <br /><br />
         AAC can be expensive and complicated—but it doesn’t have to be. All children and families deserve real, accessible choices.
         <br /><br />
