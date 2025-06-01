@@ -1,7 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
-// 列出可下载的 APK 文件
 const files = [
   { name: "Cboard AAC 1.33.0", path: "/apk/Cboard_AAC_1.33.0.apk" },
   { name: "JABtalk 5.3.2", path: "/apk/JABtalk_5.3.2.apk" },
@@ -9,10 +8,10 @@ const files = [
   { name: "LetMeTalk 1.4.29", path: "/apk/LetMeTalk_1.4.29.apk" },
 ];
 
-// 自动生成 10 张设备图片条目（device-1.jpg … device-10.jpeg）
-// 请确保这些文件已按照相应名字放在 /public/assets/ 目录下
+// Build an array of your 10 device photos (device-1.jpg through device-9.jpg, and device-10.jpeg)
 const deviceImages = Array.from({ length: 10 }, (_, i) => {
   const n = i + 1;
+  // The 10th file was named .jpeg, the rest are .jpg:
   const ext = n === 10 ? "jpeg" : "jpg";
   return {
     src: `/assets/device-${n}.${ext}`,
@@ -23,75 +22,67 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
 
 <Layout
   title="Download Free AAC Apps – AAC For All"
-  description="Free, open-source AAC APK downloads for Android tablets. No Google Play needed. Curated apps for non-speaking children and autistic users."
+  description="Free, open‐source AAC APK downloads for Android tablets. No Google Play needed. Curated apps for non‐speaking children and autistic users."
   ogImage="/assets/aac-3.png"
   canonical="https://aacforall.org/apk"
 >
   <main class="bg-gray-100 min-h-screen pb-16">
-
-    <!--
-      Info Banner（从 Marketplace 帖子摘录）
-      ======================================
-      说明本项目针对哪些家庭、包含哪些内容、价格多少、邮费、联系方式等信息
-    -->
+    <!-- Info Banner (adapted from your marketplace post) -->
     <section class="max-w-3xl mx-auto px-4 mt-8 mb-8">
       <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5 rounded-md shadow">
         <h2 class="text-xl font-bold text-gray-800 mb-2">
           Important – AAC Devices for Families with Special Needs
         </h2>
         <p class="text-gray-700 mb-2">
-          <strong class="text-red-600">
-            *These devices are reserved for families with AAC needs (non-verbal, communication support).
-          </strong>
-          <br />
+          <b class="text-red-600">
+            *These devices are reserved for families with AAC needs (non‐verbal, communication support).
+          </b><br />
           Not for general entertainment use or resale.
         </p>
         <ul class="list-disc ml-5 text-gray-800 mb-2">
           <li>
-            Each set includes:
-            <ul class="list-disc ml-5">
-              <li>Rugged Samsung Galaxy Tab Active 3 tablet</li>
-              <li>Heavy-duty shockproof case (with hand strap & shoulder strap)</li>
-              <li>Pre-installed screen protector</li>
-            </ul>
+            Each set includes a rugged Samsung Galaxy Tab Active 3 tablet,
+            heavy‐duty shockproof case (with hand/shoulder straps), and pre‐installed screen protector.
           </li>
-          <li>All recommended AAC apps (Cboard, Leeloo, Jabtalk, Jellow, etc.) are pre-installed and ready to use—no Google Play required.</li>
-          <li><strong>Cost price:</strong> $110 per set (Companion Card holders preferred; families in need are welcome).</li>
-          <li><strong>Postage:</strong> $15 Australia-wide (or local pickup in Willetton / Perth CBD).</li>
-          <li>This is a <strong>personal, non-commercial, volunteer-driven project</strong>—not for profit.</li>
+          <li>
+            All recommended AAC apps (Cboard, Leeloo, Jabtalk, Jellow, etc.)
+            are pre‐installed and fully set up—ready to use, no Google Play required.
+          </li>
+          <li>
+            <b>Cost price:</b> $110 per set (with Companion Card preferred; families in need also welcome).
+          </li>
+          <li>
+            <b>Postage:</b> $15 Australia‐wide (or local pickup in Willetton or Perth CBD).
+          </li>
+          <li>
+            This is a <b>personal, non‐commercial, volunteer project</b>—not for profit, not a retail sale.
+          </li>
         </ul>
         <p class="text-gray-700">
-          If your speech pathologist has recommended iPad-only AAC apps (such as LAMP, Proloquo2Go, TouchChat, etc.), this device cannot support them.  
-          <strong>
-            For questions or support, please 
+          If your speech pathologist has recommended iPad‐only apps (like LAMP, Proloquo2Go, TouchChat),
+          this device won’t support them.<br />
+          <b>
+            For more information or support, feel free to
             <a href="mailto:helloluna520@gmail.com" class="text-blue-700 underline">
-              email me
+              contact me by email
             </a>.
-          </strong>
+          </b>
         </p>
         <p class="text-gray-600 mt-2">
-          <strong>
-            To view device photos, scroll down or 
-            <a href="#device-gallery" class="text-blue-700 underline">
-              jump to the gallery below
-            </a>.
-          </strong>
+          <b>
+            To see device photos, scroll down or
+            <a href="#device-gallery" class="text-blue-700 underline">jump to the gallery below</a>.
+          </b>
         </p>
       </div>
     </section>
 
-    <!--
-      APK List Section
-      ==================
-      将可下载的 APK 文件列表以卡片方式展示，并附上“Download”按钮
-    -->
+    <!-- APK List Section -->
     <section class="max-w-3xl mx-auto mt-[-2rem] px-4">
       <div class="bg-white shadow-xl rounded-lg overflow-hidden">
         <ul class="divide-y divide-gray-200">
           {files.map((f) => (
-            <li
-              class="flex flex-col md:flex-row items-center justify-between p-6 hover:bg-gray-50 transition-colors"
-            >
+            <li class="flex flex-col md:flex-row items-center justify-between p-6 hover:bg-gray-50 transition-colors">
               <div class="flex items-center space-x-4 w-full md:w-3/4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -122,16 +113,12 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
       </div>
     </section>
 
-    <!--
-      Device Photo Gallery
-      =====================
-      展示刚才上传的 10 张设备实拍照片
-    -->
+    <!-- Device Photo Gallery -->
     <section id="device-gallery" class="max-w-4xl mx-auto mt-12 px-4">
       <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">
         📸 Device Photos
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {deviceImages.map((img) => (
           <div class="bg-white rounded-lg shadow overflow-hidden">
             <img
@@ -145,11 +132,7 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
       </div>
     </section>
 
-    <!--
-      PDF Guides Section
-      ====================
-      两个 PDF 指南链接：安装指南 & 应用锁定指南
-    -->
+    <!-- PDF Guides Section -->
     <section class="max-w-3xl mx-auto mt-12 px-4">
       <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
         <a
@@ -173,6 +156,5 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
         </a>
       </div>
     </section>
-
   </main>
 </Layout>
