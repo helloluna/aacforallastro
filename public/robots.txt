@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aacforall.org/sitemap.xml

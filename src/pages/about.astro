@@ -3,9 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import AboutComponent from "../components/About.astro";
 ---
 
-<Layout title="About – AAC For All">
+<Layout
+  title="About – AAC For All"
+  description="Learn more about AAC For All, a nonprofit project by a parent of two autistic children. We provide free open-source AAC apps and affordable communication devices."
+  ogImage="/assets/aac-7.png"
+  canonical="https://aacforall.org/about"
+>
   <main class="max-w-screen-md mx-auto px-4 py-12">
-    <!-- 渲染你在 src/components/About.astro 中写好的 "关于" 内容 -->
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      About AAC For All
+    </h1>
     <AboutComponent />
   </main>
 </Layout>
