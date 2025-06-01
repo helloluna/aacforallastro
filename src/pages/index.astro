@@ -8,10 +8,20 @@ import About from "@/components/About.astro";
 import Footer from "@/components/Footer.astro";
 ---
 
-<Layout title="AAC For All – Low-cost Android AAC tablets & free apps">
+<Layout
+  title="AAC For All – Free Android AAC Apps & Affordable Tablets"
+  description="AAC For All offers free open-source communication apps and low-cost Android AAC tablets. A parent-led, nonprofit project for non-speaking and autistic children."
+  ogImage="/assets/hero-bg.jpg"
+  canonical="https://aacforall.org"
+>
   <main
     class="relative w-full flex flex-col justify-start items-center pattern"
   >
+    <!-- Main site title for SEO -->
+    <h1 class="sr-only">
+      AAC For All – Free Android AAC Apps & Affordable Tablets for Non-Speaking Children
+    </h1>
+
     <Header />
     <Hero />
     <Stack />
@@ -34,5 +44,16 @@ import Footer from "@/components/Footer.astro";
         #eaeaea 201px
       );
     background-blend-mode: multiply;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
 </style>
