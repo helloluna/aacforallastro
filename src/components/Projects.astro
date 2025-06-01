@@ -1,163 +1,135 @@
 ---
+/*
+  src/components/Projects.astro
+  统一所有图片的视觉容器风格，使插画与实拍图、截图都一致美观。
+*/
 
+const images = [
+  { src: "/assets/aac-1.jpg", alt: "Tablet and case" },               // 设备实拍
+  { src: "/assets/6A6686C4-BE4E-4203-B10E-6A4884093BC2.png", alt: "Two children using AAC tablet" }, // 插画1
+  { src: "/assets/aac-2.jpg", alt: "Child and adult using AAC app" }, // 插画2
+  { src: "/assets/aac-3.png", alt: "Child with dinosaur and AAC board" }, // 插画3
+  { src: "/assets/aac-4.jpg", alt: "Protective case set" },            // 设备图
+  { src: "/assets/aac-board.png", alt: "AAC app board screenshot" },   // AAC 界面（如你有上传）
+];
 ---
 
 <section
   class="relative overflow-hidden bg-foreground w-full max-w-screen-2xl text-center flex flex-col justify-center items-center gap-10 px-4 py-24 sm:py-24 select-none"
 >
-  <h2
-    class="z-10 w-full max-w-xl sm:text-center text-lg sm:text-2xl md:text-4xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground"
-  >
+  <h2 class="z-10 w-full max-w-xl sm:text-center text-lg sm:text-2xl md:text-4xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground">
     Every family deserves a real, accessible AAC solution.
   </h2>
-  <p
-    class="w-full max-w-xl bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground sm:text-center text-normal sm:text-lg md:text-xl font-light tracking-tighter text-balance"
-  >
+  <p class="w-full max-w-xl bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground sm:text-center text-normal sm:text-lg md:text-xl font-light tracking-tighter text-balance">
     No sales pressure. No markup. Just support, honesty and real choice.
   </p>
-  <div class="z-10 w-full grid grid-cols-1 md:grid-cols-5 grid-rows-6 gap-2">
 
-    <!-- 主设备和配件展示 -->
-    <article
-      class="overflow-hidden relative bg-dark-card col-span-1 md:col-span-3 md:row-span-2 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3"
-    >
-      <div class="flex flex-col gap-2 w-full items-start p-4 text-left">
-        <h3
-          class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          The AAC For All Device Kit
-        </h3>
-        <p
-          class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance"
-        >
-          Rugged Samsung Galaxy Tab Active 3 tablet, new shockproof case (with hand/shoulder straps), and pre-installed screen protector.  
-          <br/><br/>
-          Suited for non-speaking or autistic children — durable, portable, ready for real-life use at home, school, or in the community.
-        </p>
+  <div class="z-10 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- 示例：每个卡片都可单独调整内容 -->
+    <article class="bg-dark-card border border-dark-border rounded-[1.2rem] p-6 flex flex-col items-center gap-4 shadow">
+      <div class="aac-img-card">
+        <img src="/assets/aac-1.jpg" alt="Tablet and case" loading="lazy" />
       </div>
-      <div class="aspect-video">
-        <img
-          src="/assets/aac-1.jpg"
-          alt="Tablet and case"
-          loading="lazy"
-          width="1920"
-          height="1080"
-          class="object-contain w-full h-full rounded-md"
-        />
-      </div>
+      <h3 class="sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary mt-2">
+        AAC For All Device Kit
+      </h3>
+      <p class="text-muted-foreground text-sm md:text-base font-light text-balance">
+        Rugged Samsung Galaxy Tab Active 3 tablet, new shockproof case (with hand/shoulder straps), and pre-installed screen protector.
+        <br />Suited for non-speaking or autistic children — durable, portable, ready for real-life use at home, school, or in the community.
+      </p>
     </article>
 
-    <!-- 真实应用与App截图 -->
-    <article
-      class="overflow-hidden group bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 h-[300px] border border-dark-border rounded-[1rem] p-4 flex flex-col flex-1 gap-2 justify-center items-center"
-    >
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out">
-        <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
-          Free open-source AAC apps
-        </span>
+    <article class="bg-dark-card border border-dark-border rounded-[1.2rem] p-6 flex flex-col items-center gap-4 shadow">
+      <div class="aac-img-card">
+        <img src="/assets/6A6686C4-BE4E-4203-B10E-6A4884093BC2.png" alt="Two children using AAC tablet" loading="lazy" />
       </div>
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out">
-        <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
-          No Google account required
-        </span>
-      </div>
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border">
-        <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
-          Instant trial, full refund
-        </span>
-      </div>
-      <div class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border rotate-12 group-hover:rotate-0 transition-all duration-300 ease-in-out">
-        <span class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
-          Companion Card supported
-        </span>
-      </div>
+      <h3 class="sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary mt-2">
+        Real Families. Real Voices.
+      </h3>
+      <p class="text-muted-foreground text-sm md:text-base font-light text-balance">
+        All children deserve a voice. AAC enables connection, choice and participation.
+      </p>
     </article>
 
-    <!-- App实际截图 -->
-    <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] px-4 group"
-    >
-      <div class="w-full h-fit max-h-[500px] flex flex-col justify-center select-none overflow-hidden">
-        <div class="w-full h-max flex flex-col justify-center items-center gap-[2rem]">
-          <img
-            src="/assets/aac-2.jpg"
-            alt="AAC app running"
-            loading="lazy"
-            width="800"
-            height="600"
-            class="object-contain w-full h-full rounded-md"
-          />
-          <img
-            src="/assets/aac-3.png"
-            alt="Tablet with accessories"
-            loading="lazy"
-            width="800"
-            height="600"
-            class="object-contain w-full h-full rounded-md"
-          />
-        </div>
+    <article class="bg-dark-card border border-dark-border rounded-[1.2rem] p-6 flex flex-col items-center gap-4 shadow">
+      <div class="aac-img-card">
+        <img src="/assets/aac-2.jpg" alt="Child and adult using AAC app" loading="lazy" />
       </div>
+      <h3 class="sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary mt-2">
+        Supported Play
+      </h3>
+      <p class="text-muted-foreground text-sm md:text-base font-light text-balance">
+        Learn AAC through play and daily routines with your child.
+      </p>
     </article>
 
-    <!-- 价格/试用政策/家长承诺 -->
-    <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-3 md:row-span-2 md:col-start-3 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3"
-    >
-      <div class="flex flex-col gap-2 w-full items-start p-4 text-left">
-        <h3
-          class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          Fair, transparent, parent-driven
-        </h3>
-        <p
-          class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance"
-        >
-          Each set is offered at cost: $110 (with valid Companion Card).
-          <br/><br/>
-          <b>Try for 2 weeks — if it's not the right fit, just return for a full refund. No questions asked.</b>
-          <br/>
-          This is about support, not sales.
-        </p>
+    <article class="bg-dark-card border border-dark-border rounded-[1.2rem] p-6 flex flex-col items-center gap-4 shadow">
+      <div class="aac-img-card">
+        <img src="/assets/aac-3.png" alt="Child with dinosaur and AAC board" loading="lazy" />
       </div>
-      <div class="aspect-video">
-        <img
-          src="/assets/aac-4.jpg"
-          alt="Protective case set"
-          loading="lazy"
-          width="1920"
-          height="1080"
-          class="object-contain w-full h-full rounded-md"
-        />
-      </div>
+      <h3 class="sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary mt-2">
+        Learning Together
+      </h3>
+      <p class="text-muted-foreground text-sm md:text-base font-light text-balance">
+        AAC is for everyone! Model words, respond, and explore together.
+      </p>
     </article>
 
-    <!-- 联系方式和真实承诺 -->
-    <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 md:row-start-5 border h-[300px] border-dark-border rounded-[1rem]"
-    >
-      <div class="w-full h-full flex flex-col gap-5 justify-center items-center">
-        <h1
-          class="sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          Questions? Contact me
-        </h1>
-        <a
-          href="mailto:helloluna520@gmail.com"
-          class="w-fit flex gap-2 justify-center items-center px-4 py-2 sm:text-lg font-medium text-background bg-primary rounded-full"
-        >
-          Email for support
-        </a>
+    <article class="bg-dark-card border border-dark-border rounded-[1.2rem] p-6 flex flex-col items-center gap-4 shadow">
+      <div class="aac-img-card">
+        <img src="/assets/aac-4.jpg" alt="Protective case set" loading="lazy" />
       </div>
+      <h3 class="sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary mt-2">
+        Ready for Life
+      </h3>
+      <p class="text-muted-foreground text-sm md:text-base font-light text-balance">
+        Every device includes a case and accessories for real-life use.
+      </p>
+    </article>
+
+    <article class="bg-dark-card border border-dark-border rounded-[1.2rem] p-6 flex flex-col items-center gap-4 shadow">
+      <div class="aac-img-card">
+        <img src="/assets/aac-4.jpg" alt="AAC app board screenshot" loading="lazy" />
+      </div>
+      <h3 class="sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary mt-2">
+        Easy To Use
+      </h3>
+      <p class="text-muted-foreground text-sm md:text-base font-light text-balance">
+        All tablets come pre-installed with free, open-source AAC apps—no Google account required.
+      </p>
     </article>
   </div>
-  <div
-    class="bg-white opacity-10 absolute size-80 top-[-160px] border blur-[150px] rounded-full"
-  >
+
+  <div class="mt-14 flex flex-col items-center gap-3">
+    <h4 class="text-lg font-medium text-muted-foreground">Questions? Contact me</h4>
+    <a href="mailto:helloluna520@gmail.com" class="w-fit flex gap-2 justify-center items-center px-4 py-2 sm:text-lg font-medium text-background bg-primary rounded-full shadow hover:bg-secondary transition">
+      Email for support
+    </a>
   </div>
 </section>
 
 <style>
-  .group:hover .animate-vertical-slide {
-    animation-play-state: paused;
+  .aac-img-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    width: 100%;
+    height: 200px;
+    max-width: 340px;
+    margin: 0 auto;
+    /* 如果插画主体太小，可适当调小 height 或 max-width */
+  }
+  .aac-img-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 1rem;
+    background: transparent;
+    box-shadow: none;
   }
 </style>

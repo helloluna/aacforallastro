@@ -2,101 +2,167 @@
 import Image from "astro/components/Image.astro";
 
 /*
-    Free AAC app logos（如后续有 SVG，可放 public/assets 下，这里演示用 jpg/png 路径）。
+  src/components/Stack.astro
+  “Free AAC Apps” section with clear, working links and a cleaner layout.
 */
+
+const apps = [
+  {
+    name: "Cboard AAC",
+    description: "Symbol/phrase board, multi‐language",
+    file: "Cboard_AAC_1.33.0.apk",
+  },
+  {
+    name: "JABtalk",
+    description: "Simple voice output, custom boards",
+    file: "JABtalk_5.3.2.apk",
+  },
+  {
+    name: "Jellow Basic AAC Communicator",
+    description: "Child‐friendly, symbol communicator",
+    file: "Jellow_Basic_AAC_Communicator_4.1.2.apk",
+  },
+  {
+    name: "LetMeTalk",
+    description: "Large vocabulary, easy to use",
+    file: "LetMeTalk_1.4.29.apk",
+  },
+];
+
 const logos = [
   { src: "/assets/aac-1.jpg", alt: "Tablet and case" },
   { src: "/assets/aac-2.jpg", alt: "AAC app running" },
   { src: "/assets/aac-3.png", alt: "Tablet with accessories" },
-  { src: "/assets/aac-4.jpg", alt: "Protective case set" }
+  { src: "/assets/aac-4.jpg", alt: "Protective case set" },
 ];
 ---
 
 <section
-  class="relative w-full text-center flex flex-col justify-center items-center gap-5 px-4 py-20 sm:py-24 pointer-events-none"
+  class="relative w-full bg-background py-20 px-4 sm:py-24 sm:px-6 lg:px-8"
 >
-  <h2
-    class="w-full max-w-xl sm:text-center text-lg sm:text-2xl md:text-4xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-primary via-foreground to-foreground"
-  >
-    Free AAC Apps — Ready to Download
-  </h2>
-  <p
-    class="w-full max-w-xl text-muted-foreground sm:text-center text-normal sm:text-lg md:text-xl font-light tracking-tighter text-balance"
-  >
-    No Google Play required.  
-    <br />
-    Direct APK downloads for modern Android tablets.
-  </p>
-  <div
-    class="w-full h-fit max-w-xl flex flex-col justify-center select-none overflow-hidden gradient"
-  >
-    <div class="w-max flex flex-nowrap gap-[4rem] animate-slide-logos">
-      {
-        logos.concat(logos).map((logo) => (
-          <div class="aspect-square flex items-center justify-center size-20">
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={80}
-              height={80}
-              loading="eager"
-              class="object-contain rounded-lg shadow"
-            />
-          </div>
-        ))
-      }
+  <div class="mx-auto max-w-2xl text-center">
+    <h2
+      class="text-3xl font-semibold tracking-tight text-pretty sm:text-4xl lg:text-5xl"
+    >
+      Free AAC Apps — Ready to Download
+    </h2>
+    <p class="mt-4 text-lg text-muted-foreground">
+      No Google Play required.<br />
+      Direct APK downloads for modern Android tablets.
+    </p>
+  </div>
+
+  <!-- Logos carousel (optional) -->
+  <div class="mt-12 flex justify-center overflow-hidden">
+    <div class="flex animate-slide-logos space-x-10">
+      {logos.map((logo) => (
+        <div
+          class="flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg bg-white p-2 shadow-md"
+        >
+          <Image
+            src={logo.src}
+            alt={logo.alt}
+            width={80}
+            height={80}
+            loading="eager"
+            class="object-contain"
+          />
+        </div>
+      ))}
+      {logos.map((logo) => (
+        <div
+          class="flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg bg-white p-2 shadow-md"
+        >
+          <Image
+            src={logo.src}
+            alt={logo.alt}
+            width={80}
+            height={80}
+            loading="eager"
+            class="object-contain"
+          />
+        </div>
+      ))}
     </div>
   </div>
-  <div class="w-full max-w-xl text-center mt-8">
-    <ul class="list-disc list-inside text-muted-foreground text-lg">
-      <li>
-        <b>
-          <a href="/apk/Cboard_AAC_1.33.0.apk" style="color:#1d80c3;">Cboard AAC</a>
-        </b> — Symbol/phrase board, multi-language.
-      </li>
-      <li>
-        <b>
-          <a href="/apk/JABtalk 5.3.2.apk" style="color:#1d80c3;">JABtalk</a>
-        </b> — Simple voice output, custom boards.
-      </li>
-      <li>
-        <b>
-          <a href="/apk/Jellow Basic AAC Communicator_4.1.2.apk" style="color:#1d80c3;">Jellow AAC</a>
-        </b> — Child-friendly, symbol communicator.
-      </li>
-      <li>
-        <b>
-          <a href="/apk/LetMeTalk 1.4.29.apk" style="color:#1d80c3;">LetMeTalk</a>
-        </b> — Large vocabulary, easy to use.
-      </li>
+
+  <!-- APK download list -->
+  <div class="mx-auto mt-16 max-w-xl">
+    <ul class="space-y-6">
+      {apps.map((app) => (
+        <li class="flex items-start space-x-4">
+          <svg
+            class="mt-1 h-6 w-6 flex-none text-primary"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 16v-8l8 4-8 4zm16 0V8l-8 4 8 4z"
+            />
+          </svg>
+          <div>
+            <a
+              href={`/apk/${encodeURIComponent(app.file)}`}
+              download
+              class="text-lg font-medium text-primary hover:underline"
+            >
+              {app.name}
+            </a>
+            <p class="mt-1 text-base text-muted-foreground">
+              {app.description} &mdash; Click to download APK
+            </p>
+          </div>
+        </li>
+      ))}
     </ul>
-    <p class="mt-6 text-base text-muted-foreground">
-      <a href="/assets/AAC_App_Installation_Guide.pdf" target="_blank" style="color:#1d80c3;">
-        📖 AAC App Installation Guide
+
+    <!-- PDF Guides -->
+    <div class="mt-12 flex flex-wrap items-center justify-center space-x-6 space-y-4">
+      <a
+        href="/assets/AAC_App_Installation_Guide.pdf"
+        target="_blank"
+        class="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-white shadow hover:bg-secondary transition"
+      >
+        📖 Download Installation Guide (PDF)
       </a>
-      &nbsp;|&nbsp;
-      <a href="/assets/How_to_Pin_App_Samsung_Tab_Active3.pdf" target="_blank" style="color:#1d80c3;">
-        🔒 How to Pin an App (App Lock Guide)
+      <a
+        href="/assets/How_to_Pin_App_Samsung_Tab_Active3.pdf"
+        target="_blank"
+        class="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-white shadow hover:bg-secondary transition"
+      >
+        🔒 How to Pin an App (PDF)
       </a>
-    </p>
+    </div>
   </div>
 </section>
 
 <style>
+  /* Simple left-to-right marquee effect for logos */
+  @keyframes slide-logos {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-slide-logos {
+    animation: slide-logos 20s linear infinite;
+  }
+
+  /* Gradual fade‐out at edges */
   .gradient {
-    mask: linear-gradient(
-      90deg,
-      transparent,
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
       black 20%,
       black 80%,
-      transparent
-    );
-    -webkit-mask: linear-gradient(
-      90deg,
-      transparent,
-      black 20%,
-      black 80%,
-      transparent
+      transparent 100%
     );
   }
 </style>
