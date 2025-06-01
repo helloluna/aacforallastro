@@ -1,9 +1,7 @@
 ---
-// src/pages/apk/index.astro
-
 import Layout from "../../layouts/Layout.astro";
 
-// List of APK files available for download
+// 列出可下载的 APK 文件
 const files = [
   { name: "Cboard AAC 1.33.0", path: "/apk/Cboard_AAC_1.33.0.apk" },
   { name: "JABtalk 5.3.2", path: "/apk/JABtalk_5.3.2.apk" },
@@ -11,15 +9,14 @@ const files = [
   { name: "LetMeTalk 1.4.29", path: "/apk/LetMeTalk_1.4.29.apk" },
 ];
 
-// Automatically generate 10 device photo entries (device-1.jpg … device-10.jpeg)
-// Make sure these files exist under /public/assets/ with exactly these names.
+// 自动生成 10 张设备图片条目（device-1.jpg … device-10.jpeg）
+// 请确保这些文件已按照相应名字放在 /public/assets/ 目录下
 const deviceImages = Array.from({ length: 10 }, (_, i) => {
   const n = i + 1;
   const ext = n === 10 ? "jpeg" : "jpg";
   return {
     src: `/assets/device-${n}.${ext}`,
     alt: `Device photo ${n}`,
-    key: `device-${n}`,
   };
 });
 ---
@@ -33,10 +30,9 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
   <main class="bg-gray-100 min-h-screen pb-16">
 
     <!--
-      Info Banner (from Marketplace post)
-      ====================================
-      This section summarizes the key details about the AAC devices—
-      who they are for, what is included, cost, postage, and how to contact.
+      Info Banner（从 Marketplace 帖子摘录）
+      ======================================
+      说明本项目针对哪些家庭、包含哪些内容、价格多少、邮费、联系方式等信息
     -->
     <section class="max-w-3xl mx-auto px-4 mt-8 mb-8">
       <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5 rounded-md shadow">
@@ -60,7 +56,7 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
             </ul>
           </li>
           <li>All recommended AAC apps (Cboard, Leeloo, Jabtalk, Jellow, etc.) are pre-installed and ready to use—no Google Play required.</li>
-          <li><strong>Cost price:</strong> $110 per set (Companion Card holders preferred; families in need are welcome to contact).</li>
+          <li><strong>Cost price:</strong> $110 per set (Companion Card holders preferred; families in need are welcome).</li>
           <li><strong>Postage:</strong> $15 Australia-wide (or local pickup in Willetton / Perth CBD).</li>
           <li>This is a <strong>personal, non-commercial, volunteer-driven project</strong>—not for profit.</li>
         </ul>
@@ -86,8 +82,8 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
 
     <!--
       APK List Section
-      =================
-      Renders a list of available APKs with download buttons.
+      ==================
+      将可下载的 APK 文件列表以卡片方式展示，并附上“Download”按钮
     -->
     <section class="max-w-3xl mx-auto mt-[-2rem] px-4">
       <div class="bg-white shadow-xl rounded-lg overflow-hidden">
@@ -95,7 +91,6 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
           {files.map((f) => (
             <li
               class="flex flex-col md:flex-row items-center justify-between p-6 hover:bg-gray-50 transition-colors"
-              key={f.path}
             >
               <div class="flex items-center space-x-4 w-full md:w-3/4">
                 <svg
@@ -130,7 +125,7 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
     <!--
       Device Photo Gallery
       =====================
-      Displays 10 uploaded photos of the actual devices.
+      展示刚才上传的 10 张设备实拍照片
     -->
     <section id="device-gallery" class="max-w-4xl mx-auto mt-12 px-4">
       <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">
@@ -138,7 +133,7 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {deviceImages.map((img) => (
-          <div class="bg-white rounded-lg shadow overflow-hidden" key={img.key}>
+          <div class="bg-white rounded-lg shadow overflow-hidden">
             <img
               src={img.src}
               alt={img.alt}
@@ -152,8 +147,8 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
 
     <!--
       PDF Guides Section
-      ===================
-      Links to two PDF guides: Installation Guide & App Pin / Lock Guide.
+      ====================
+      两个 PDF 指南链接：安装指南 & 应用锁定指南
     -->
     <section class="max-w-3xl mx-auto mt-12 px-4">
       <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
