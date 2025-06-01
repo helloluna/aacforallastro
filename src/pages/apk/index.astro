@@ -13,6 +13,7 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
   return {
     src: `/assets/device-${n}.${ext}`,
     alt: `Device photo ${n}`,
+    key: `device-${n}`,
   };
 });
 ---
@@ -24,7 +25,7 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
   canonical="https://aacforall.org/apk"
 >
   <main class="bg-gray-100 min-h-screen pb-16">
-    <!-- Info Banner (from Marketplace Post) -->
+    <!-- Info Banner -->
     <section class="max-w-3xl mx-auto px-4 mt-8 mb-8">
       <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5 rounded-md shadow">
         <h2 class="text-xl font-bold text-gray-800 mb-2">Important – AAC Devices for Families with Special Needs</h2>
@@ -53,8 +54,8 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
     <section class="max-w-3xl mx-auto mt-[-2rem] px-4">
       <div class="bg-white shadow-xl rounded-lg overflow-hidden">
         <ul class="divide-y divide-gray-200">
-          {files.map((f) => (
-            <li class="flex flex-col md:flex-row items-center justify-between p-6 hover:bg-gray-50 transition-colors">
+          {files.map((f, i) => (
+            <li class="flex flex-col md:flex-row items-center justify-between p-6 hover:bg-gray-50 transition-colors" key={f.path}>
               <div class="flex items-center space-x-4 w-full md:w-3/4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +93,7 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {deviceImages.map((img) => (
-          <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="bg-white rounded-lg shadow overflow-hidden" key={img.key}>
             <img
               src={img.src}
               alt={img.alt}
