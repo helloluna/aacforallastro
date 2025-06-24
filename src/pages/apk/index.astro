@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
+import Footer from "@/components/Footer.astro";
 
 const files = [
   { name: "Cboard AAC 1.33.0", path: "/apk/Cboard_AAC_1.33.0.apk" },
@@ -28,6 +29,7 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
   canonical="https://aacforall.org/apk"
 >
   <main class="bg-gray-100 min-h-screen pb-16">
+  <Header />
     <!-- Info Banner (adapted from your marketplace post) -->
     <section class="max-w-3xl mx-auto px-4 mt-8 mb-8">
       <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5 rounded-md shadow">
@@ -157,5 +159,6 @@ const deviceImages = Array.from({ length: 10 }, (_, i) => {
         </a>
       </div>
     </section>
+    <Footer />
   </main>
 </Layout>
